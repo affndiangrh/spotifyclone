@@ -1,8 +1,229 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #181818;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+        .navbar img {
+            width: 100px;
+        }
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .navbar ul li {
+            margin-left: 20px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .navbar ul li:hover {
+            color: #1DB954;
+        }
+        .hero {
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1DB954, #191414);
+            text-align: center;
+            padding-top: 60px;
+            color: white;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+        .hero button {
+            padding: 10px 20px;
+            background-color: #1DB954;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .hero button:hover {
+            background-color: #1ed760;
+        }
+        .section {
+            padding: 20px 20px;
+            margin-top: 50px;
+            flex: 1;
+        }
+        .section h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        .playlist-slider {
+            display: flex;
+            overflow-x: auto;
+            padding: 10px 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .playlist-slider::-webkit-scrollbar {
+            display: none;
+        }
+        .playlist-card {
+            background-color: #181818;
+            border-radius: 8px;
+            margin-right: 15px;
+            width: 150px;
+            padding: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex: 0 0 auto;
+        }
+        .playlist-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        .playlist-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .playlist-card h3 {
+            font-size: 0.9rem;
+            margin: 0;
+            color: #fff;
+        }
+        .playlist-card p {
+            font-size: 0.7rem;
+            color: #b3b3b3;
+        }
+        .bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #181818;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-top: 1px solid #282828;
+        }
+        .bottom-nav i {
+            font-size: 20px;
+            color: white;
+            transition: color 0.3s ease;
+        }
+        .bottom-nav i:hover {
+            color: #1DB954;
+        }
+        @media (max-width: 460px) {
+            .navbar {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 0.9rem;
+            }
+            .hero button {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            .section {
+                padding: 15px;
+            }
+            .playlist-card {
+                width: 120px;
+                padding: 10px;
+                margin-right: 10px;
+            }
+            .playlist-card h3 {
+                font-size: 0.8rem;
+            }
+            .playlist-card p {
+                font-size: 0.6rem;
+            }
+            .bottom-nav {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 <body>
-   <h1>Tesi Git Via Termux</h1>
+    <header class="navbar">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify Logo">
+        <ul>
+            <li>Home</li>
+            <li>Search</li>
+            <li>Your Library</li>
+        </ul>
+    </header>
+    <section class="hero">
+        <h1>Listening is everything</h1>
+        <p>Millions of songs and podcasts. No credit card needed.</p>
+        <button>GET SPOTIFY FREE</button>
+    </section>
+    <section class="section">
+        <h2>Trending Playlists</h2>
+        <div class="playlist-slider">
+            <div class="playlist-card">
+                <img src="https://via.placeholder.com/150" alt="Playlist 1">
+                <h3>Top Hits</h3>
+                <p>Various Artists</p>
+            </div>
+            <div class="playlist-card">
+                <img src="https://via.placeholder.com/150" alt="Playlist 2">
+                <h3>Daily Mix</h3>
+                <p>Personalized</p>
+            </div>
+            <div class="playlist-card">
+                <img src="https://via.placeholder.com/150" alt="Playlist 3">
+                <h3>Chill Vibes</h3>
+                <p>Relax and Unwind</p>
+            </div>
+            <div class="playlist-card">
+                <img src="https://via.placeholder.com/150" alt="Playlist 4">
+                <h3>Workout Beats</h3>
+                <p>High Energy</p>
+            </div>
+            <div class="playlist-card">
+                <img src="https://via.placeholder.com/150" alt="Playlist 5">
+                <h3>Throwback Hits</h3>
+                <p>Old is Gold</p>
+            </div>
+        </div>
+    </section>
+    <nav class="bottom-nav">
+        <i class="fas fa-home"></i>
+        <i class="fas fa-search"></i>
+        <i class="fas fa-book"></i>
+    </nav>
 </body>
 </html>
